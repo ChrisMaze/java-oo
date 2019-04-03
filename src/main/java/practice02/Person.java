@@ -9,6 +9,9 @@ public class Person {
         this.age = age;
     }
 
+    public Person() {
+    }
+
     public String getName() {
         return name;
     }
@@ -16,7 +19,8 @@ public class Person {
     public int getAge() {
         return age;
     }
+
     public String introduce() {
-        return "My name is "+name+". I am "+age+" years old.";
+        return "My name is " + name + ". I am " + age + " years old.";
     }
 }
