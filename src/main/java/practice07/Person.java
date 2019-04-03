@@ -8,7 +8,6 @@ public class Person {
         this.name = name;
         this.age = age;
     }
-
     public Person() {
     }
     public String getName() {
