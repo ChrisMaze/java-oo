@@ -2,7 +2,6 @@ package practice07;
 
 public class Teacher extends Person{
     private Klass klass;
-    private String choice;
     public Teacher(String name, int age, Klass klass) {
         super(name,age);
         this.klass = klass;
