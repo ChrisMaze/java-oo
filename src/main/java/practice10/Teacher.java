@@ -1,25 +1,40 @@
 package practice10;
 
+import java.util.LinkedList;
+
 public class Teacher extends Person{
-    private Klass klass;
-    //private String choice;
-    public Teacher(int id,String name, int age, Klass klass) {
+    private LinkedList<Klass> classes = new LinkedList();
+    private String string = super.introduce()+" I am a Teacher. I teach ";
+    public Teacher(int id, String name, int age, LinkedList<Klass> linkedList) {
         super(id,name,age);
-        this.klass = klass;
+        this.classes = linkedList;
     }
     public Teacher(int id,String name, int age) {
         super(id,name,age);
     }
-    public Klass getKlass(){
-        return klass;
-    }
+
     public String introduce(){
-        return super.introduce()+" I am a Teacher. I teach "+
-                (klass != null ? klass.getDisplayName():"No Class")+".";
+        if (classes.size()==0)
+            string += "No Class.";
+        else {
+            string +="Class";
+            for (int i = 0; i <classes.size() ; i++) {
+                string += " " + classes.get(i).getNumber();
+                if (i==classes.size()-1)
+                    string+=".";
+                else
+                    string+=",";
+            }
+        }
+        return string;
+    }
+
+    public boolean isTeaching(Student jerry) {
+        return jerry.getKlass().isIn(classes);
     }
 
     public String introduceWith(Student jerry) {
         return super.introduce()+ " I am a Teacher. I "+
-                (klass.getNumber() == jerry.getKlass().getNumber() ? "" : "don't " )+"teach "+jerry.getName()+".";
+                (this.isTeaching(jerry) ? "" : "don't " )+"teach "+jerry.getName()+".";
     }
 }

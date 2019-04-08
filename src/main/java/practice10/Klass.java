@@ -1,6 +1,7 @@
 package practice10;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Klass {
@@ -34,5 +35,13 @@ public class Klass {
     public void appendMember(Student jerry) {
         if (!arrStudents.contains(jerry))
             arrStudents.add(jerry);
+    }
+
+    public boolean isIn(LinkedList<Klass> classes) {
+        for (Klass temp:classes) {
+            if (this.equals(temp))
+            return true;
+        }
+        return false;
     }
 }
